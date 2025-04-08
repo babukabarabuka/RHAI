@@ -135,21 +135,30 @@ CREDIT CYPRYAN:
 
 -- Plot Eval Changes
 
-
-UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; 
+--UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; 
 UPDATE AiFavoredItems SET Value = 200 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; 
 
-UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; 
-UPDATE AiFavoredItems SET Value = 18 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; 
+UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_ADDITIONAL_VALUE_PER_CITY'; -- Def 3, Expansion and Nubia -1
 
+
+UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- +3 Nubia, -3 expansion
+UPDATE AiFavoredItems SET Value = 15 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- pvs 18, 20 Nubia
+
+
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -10, OngoingStrengthAdvantage = -10 WHERE TeamName = 'Settle City Team' AND OperationName = 'Settle New City'; 
 
 
 -- SETTLEMENT_MIN_VALUE_NEEDED Addon
 
-UPDATE AiFavoredItems SET Value = -8 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 10
+UPDATE AiFavoredItems SET Value = -3 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 10
+UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; -- def 10
+
 
 -- Expansion
 UPDATE AiFavoredItems SET Value = -11 WHERE ListType = 'ExpansionSettlementBoost' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 15
+
+
+-- Expanionist
 UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; 
 
 
@@ -184,7 +193,7 @@ UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'ExpansionistCitySettleme
 	</PlotEvalConditions>
 */
 
-UPDATE PlotEvalConditions SET PoorValue = -5, GoodValue = 10 WHERE ConditionType = 'Cultural Pressure'; -- test, def nothing
+--UPDATE PlotEvalConditions SET PoorValue = -5, GoodValue = 10 WHERE ConditionType = 'Cultural Pressure'; -- test, def nothing
 
 /*
 		<Row ListType="StandardSettlePlot" Item="Cultural Pressure" Favored="false" Value="1"/>
@@ -195,11 +204,13 @@ UPDATE PlotEvalConditions SET PoorValue = -5, GoodValue = 10 WHERE ConditionType
 
 
 UPDATE OpTeamRequirements SET MinNumber = '1', MaxNumber = '1' WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_SETTLE'; -- MinNumber=1	MaxNumber=1
-UPDATE OpTeamRequirements SET MinNumber = '0', MaxNumber = '3' WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_COMBAT'; -- MinNumber=1	MaxNumber=, max pvs 3, 2. Test min 2 units, max 4
+UPDATE OpTeamRequirements SET MinNumber = '2', MaxNumber = '3' WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_COMBAT'; -- MinNumber=1	MaxNumber=, max pvs 3, 2. Test min 2 units, max 4
 
 
 INSERT INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
-('Settle City Team', 'UNITTYPE_LAND_COMBAT', 					 1, 3), -- Can use Scouts
+('Settle City Team', 'UNITTYPE_LAND_COMBAT', 					 1, 3), -- Can bring Scouts, not currently in tree
+
+('Settle City Team', 'UNITAI_EXPLORE', 					 		0, 1),
 
 ('Settle City Team', 'UNITTYPE_SIEGE_SUPPORT', 					 0, 0), 
 ('Settle City Team', 'UNITTYPE_SIEGE', 							 0, 0);
@@ -208,14 +219,18 @@ INSERT INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
 ----------------------------------------------------------------------------
 
 
+
+
 -- Settle Test
 
 
 -- New Settle Naval Team Test
+
+/*
 INSERT OR IGNORE INTO AiTeams (TeamName) VALUES
 ('RH Naval Settle Team');
 INSERT OR IGNORE INTO AiOperationTeams (TeamName,OperationName,InitialStrengthAdvantage,OngoingStrengthAdvantage, Condition) VALUES
-('RH Naval Settle Team',								'Settle New City',				-4,						-1,			 'IsCoastalTarget');
+('RH Naval Settle Team',								'Settle New City',				-10,						-1,			 'IsCoastalTarget');
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber, ReconsiderWhilePreparing) VALUES
 ('RH Naval Settle Team', 						'UNITAI_COMBAT',     1, 	5, 					0);
 
@@ -229,7 +244,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 ('RH Naval Settle Team', 'UNITTYPE_AIR', 							0, 0),
 
 ('RH Naval Settle Team', 'UNITTYPE_CIVILIAN_LEADER', 				0, 1); -- Bring Great General / Admiral
-
+*/
 
 
 

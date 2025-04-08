@@ -419,7 +419,7 @@ UPDATE DiplomaticStateActions SET Cost = 20 WHERE StateType = 'DIPLO_STATE_UNFRI
 -- Military
 
 UPDATE DiplomaticStateActions SET Worth = -55 WHERE DiplomaticActionType = 'DIPLOACTION_MAKE_PEACE'; -- pvs -55, 53
-UPDATE DiplomaticStateActions SET Cost = 28 WHERE DiplomaticActionType = 'DIPLOACTION_MAKE_PEACE'; -- pvs 25
+UPDATE DiplomaticStateActions SET Cost = 30 WHERE DiplomaticActionType = 'DIPLOACTION_MAKE_PEACE'; -- pvs 25, 28 -- TODO More only in Deity and above file
 
 UPDATE DiplomaticStateActions SET Worth = -40 WHERE DiplomaticActionType = 'DIPLOACTION_PROPOSE_PEACE_DEAL'; -- pvs -40, 39
 UPDATE DiplomaticStateActions SET Cost = 27 WHERE DiplomaticActionType = 'DIPLOACTION_PROPOSE_PEACE_DEAL'; -- pvs 25
@@ -584,7 +584,7 @@ INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
 INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
 ('MajorFavorPseudos', 'MAJOR_CIV_DEFAULT_TRAIT', 'PseudoYields');
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
-('MajorFavorPseudos', 'PSEUDOYIELD_UNIT_COMBAT', 	-70), -- pvs -55, -62 favored
+('MajorFavorPseudos', 'PSEUDOYIELD_UNIT_COMBAT', 	-75), -- pvs -55, -62 favored
 ('MajorFavorPseudos', 'PSEUDOYIELD_GPP_PROPHET', 	-30);
 
 

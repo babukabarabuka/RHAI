@@ -128,30 +128,30 @@ VALUES
 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-('BUILDING_HANGAR', 				'RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF'),
 
-('BUILDING_HANGAR', 				'RH_AI_GOLD_SIM_BIPLANE_FLIGHT');
+('BUILDING_COAL_POWER_PLANT', 				'RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF'), -- Needs aerodrome district
+
+('BUILDING_COAL_POWER_PLANT', 				'RH_AI_GOLD_SIM_BIPLANE_FLIGHT'),
+
+('BUILDING_HANGAR', 						'RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF'),
+
+('BUILDING_HANGAR', 						'RH_AI_GOLD_SIM_BIPLANE_FLIGHT');
 
 
 
 -- Gold Deduction at Flight
 
--- Step 1: Insert the modifier to deduct gold when Flight is researched
 INSERT OR IGNORE INTO Modifiers
     (ModifierId,                                ModifierType,        RunOnce, Permanent,                         OwnerRequirementSetId) VALUES    
     ('RH_AI_GOLD_SIM_BIPLANE_FLIGHT',     'MODIFIER_PLAYER_MULTIPLY_TREASURY', 1, 1,      'RH_AI_HAS_FLIGHT_HIGH_DIFF');
 
--- Step 2: Define the amount to deduct (-50 gold)
 INSERT OR IGNORE INTO ModifierArguments
     (ModifierId,                                Name,                         Value) VALUES    
-    -- Deduct 50 gold
-    ('RH_AI_GOLD_SIM_BIPLANE_FLIGHT',    'Amount',                     -90); 
+    ('RH_AI_GOLD_SIM_BIPLANE_FLIGHT',    'Amount',                     -85); 
 
 
 
 
-
--- Inserting the Modifier to grant a Biplane at Flight technology
 INSERT OR IGNORE INTO Modifiers
     (ModifierId,                                ModifierType,                             OwnerRequirementSetId) VALUES    
     ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY',        'RH_AI_HAS_FLIGHT_HIGH_DIFF');
@@ -165,7 +165,7 @@ INSERT OR IGNORE INTO ModifierArguments
     ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'AllowUniqueOverride',       0),
     ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'RunOnce',                   1); -- True
 
--- Step 3: Define the requirements for TECH_FLIGHT
+-- Define the requirements
 INSERT OR IGNORE INTO RequirementSets
     (RequirementSetId,                                RequirementSetType) VALUES    
     -- Requirements for granting Biplanes after Flight is researched
@@ -177,6 +177,8 @@ INSERT OR IGNORE INTO RequirementSetRequirements
     ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'RH_REQUIRES_OWN_CITY'),
     ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'RH_REQUIRES_HAS_TECH_FLIGHT'),
     ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'RH_REQUIRES_NO_ADVANCED_FLIGHT'),	
+	
+    ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'RH_REQUIRES_CITY_HAS_AERODROME'),		
 	
     ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'REQUIRES_PLAYER_IS_AI'),
     ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'REQUIRES_PLAYER_EMPEROR_RH');
@@ -201,4 +203,18 @@ INSERT OR IGNORE INTO Requirements
 INSERT OR IGNORE INTO RequirementArguments
     (RequirementId,                                Name,                        Value) VALUES    
     ('RH_REQUIRES_NO_ADVANCED_FLIGHT',            'TechnologyType',           'TECH_ADVANCED_FLIGHT');
+
+
+INSERT OR IGNORE INTO Requirements
+    (RequirementId,                                RequirementType, Inverse) VALUES    
+    -- Require the player to have researched Flight
+    ('RH_REQUIRES_CITY_HAS_AERODROME',            'REQUIREMENT_DISTRICT_TYPE_MATCHES', 0);
+
+INSERT OR IGNORE INTO RequirementArguments
+    (RequirementId,                                Name,                        Value) VALUES    
+    ('RH_REQUIRES_CITY_HAS_AERODROME',            'DistrictType',           'DISTRICT_AERODROME');
+
+
+
+
 

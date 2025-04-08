@@ -1294,8 +1294,8 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_WORLD_RELIGION_BUFF_MOD_XL',		'YieldType', 		'YIELD_RH_WORLD_RELIGION_BUFF'),
 		('RH_WORLD_RELIGION_BUFF_MOD_XL',							'Amount'   , 110),
 
-		('RH_WORLD_RELIGION_BUFF_MOD',		'YieldType', 			'YIELD_RV_BASE'),
-		('RH_WORLD_RELIGION_BUFF_MOD',								'Amount'   , 1400); -- pvs 40, 45, 60, 62, 82, 90, 93 Faith, 400 rv
+		('RH_WORLD_RELIGION_BUFF_MOD',		'YieldType', 			'YIELD_RH_RV_BASE'),
+		('RH_WORLD_RELIGION_BUFF_MOD',								'Amount'   , 100); -- pvs 40, 45, 60, 62, 82, 90, 93 Faith, 400 rv, 1400, 3000, 50
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -1308,7 +1308,7 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_PROPHET'),	
-			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH',				'Amount',					350); -- pvs 250
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH',				'Amount',					2000); -- pvs 250, 350
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -1321,7 +1321,7 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_PROPHET'),	
-			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'Amount',					950); -- pvs 150, 250, 350
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'Amount',					8500); -- pvs 150, 250, 350, 950
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -1335,7 +1335,7 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),
-			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',				'Amount',					950); -- pvs 150, 250, 350
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',				'Amount',					9500); -- pvs 150, 250, 350, 950
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -1366,8 +1366,8 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_WORLD_RELIGION_CONDEM_MOD_XL',		'YieldType', 		'YIELD_RH_WORLD_RELIGION_CONDEM'),
 		('RH_WORLD_RELIGION_CONDEM_MOD_XL',							'Amount'   , 110),
 
-		('RH_WORLD_RELIGION_CONDEM_MOD',		'YieldType', 			'YIELD_SCIENCE'),
-		('RH_WORLD_RELIGION_CONDEM_MOD',								'Amount'   , 4); -- pvs 40, 30, 22, 14, 10, 9, 5
+		('RH_WORLD_RELIGION_CONDEM_MOD',		'YieldType', 			'YIELD_GOLD'),
+		('RH_WORLD_RELIGION_CONDEM_MOD',								'Amount'   , 70); -- pvs 40, 30, 22, 14, 10, 9, 5, 4 Science, 5 Gold, 20 gold
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES

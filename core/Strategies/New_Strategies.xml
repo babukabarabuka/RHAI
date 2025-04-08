@@ -113,8 +113,8 @@
 		<Row StrategyType="STRATEGY_DEITY" ConditionFunction="Handicap at or below" ThresholdValue="6" Disqualifier="true"/>
 		<Row StrategyType="STRATEGY_DEITY" ConditionFunction="Is Not Major" Disqualifier="true"/>
 		
-		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Cities Under Threat" ThresholdValue="1" Forbidden="true" />
-		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Cities Under Threat" ThresholdValue="3"/> <!-- pvs forbidden, value 1 -->
+	
 		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Has Tech Lead" ThresholdValue="10" Forbidden="true" />
 			
 		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Major Civ Wars" ThresholdValue="1" Forbidden="true" />
@@ -427,7 +427,7 @@
 	<!--Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="3"/-->
 		
 	<!--Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_RH_DEFENSE_HP" Value="1"/--> <!-- Favored="true" -->
-	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_SETTLE"  Value="-1"/>
+	<!--Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_SETTLE"  Value="-1"/-->
 
 
 	<!--Row ListType="STRATEGY_UNDER_ATTACK_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="5"/-->
@@ -857,13 +857,13 @@
 	<Row ListType="DEITY_YIELDS" Item="YIELD_PRODUCTION" Value="25"/>
 	<Row ListType="DEITY_YIELDS" Item="YIELD_GOLD" Value="5"/> <!-- pvs 1, AI disbanding units-->
 	
-	<Row ListType="DEITY_YIELDS" Item="YIELD_RH_CITY_CENTRE" Value="50"/>
+	<!--Row ListType="DEITY_YIELDS" Item="YIELD_RH_CITY_CENTRE" Value="50"/-->
 	
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_HAPPINESS" Value="7"/> <!-- don't want too high-->
-	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="5"/>
-	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="2"/>
+	<!--Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="5"/-->
+	<!--Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="2"/-->
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_NUCLEAR_WEAPON" Value="5"/>
-	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="45"/> <!-- at 30 were building wonders, that were not needed, testing 30 again, pvs 40 -->
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="55"/> <!-- at 30 were building wonders, that were not needed, testing 30 again, pvs 40 -->
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_INFLUENCE" Value="22"/>
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="10"/>
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_GPP_SCIENTIST" Value="15"/>
@@ -881,7 +881,7 @@
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_CLEAR_BANDIT_CAMPS" Value="90"/> <!-- pvs 60 -->
 	
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="45"/> <!-- at 20 using too much aluminium, 15 too low for most however, pvs 20 -->
-	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="10"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="25"/> <!-- pvs 10 -->
 	
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="20"/>
 	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-6"/>
@@ -894,7 +894,7 @@
 	<!--Row ListType="DEITY_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="10"/-->
 	
 	
-	<Row ListType="DEITY_SETTLEMENT_VALUE" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="150"/>	<!-- Extra on High Diff, pvs 50, 100 -->
+	<Row ListType="DEITY_SETTLEMENT_VALUE" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="250"/>	<!-- Extra on High Diff, pvs 50, 100, 150 -->
 	
 	<Row ListType="DEITY_SCOUT_USES" Item="DEFAULT_LAND_SCOUTS" Value="100"/>
 	<Row ListType="DEITY_SCOUT_USES" Item="LAND_SCOUTS_PER_SECONDARY_REGION" Value="50"/>

@@ -133,7 +133,7 @@ INSERT OR IGNORE INTO Types     (Type,		Kind)    VALUES
 		
 		-- Card Slots
 
-		('YIELD_RV_BASE',					'KIND_YIELD'),		
+		('YIELD_RH_RV_BASE',					'KIND_YIELD'),		
 		
 		-- Policies
 		
@@ -406,7 +406,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 -- Policy Card
 
 ('YIELD_RH_EXPANSION', 	'LOC_YIELD_RH_AI', '[ICON_GOLD]', 			'0', 			    0.3),	
-('YIELD_RV_BASE', 				'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				0.3);	
+('YIELD_RH_RV_BASE', 				'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				0.3);	
 
 
 UPDATE Yields SET DefaultValue = 2.2 WHERE YieldType = 'YIELD_PRODUCTION'; -- pvs 1.65
@@ -417,7 +417,10 @@ UPDATE Yields SET DefaultValue = 2.0 WHERE YieldType = 'YIELD_FAITH'; -- pvs 1.2
 UPDATE Yields SET DefaultValue = 1.7 WHERE YieldType = 'YIELD_FOOD'; 
 
 UPDATE Yields SET DefaultValue = 1.4 WHERE YieldType = 'YIELD_RH_UNDER_ATTACK'; 
-UPDATE Yields SET DefaultValue = 1.2 WHERE YieldType = 'YIELD_RV_BASE'; 
+
+UPDATE Yields SET DefaultValue = 1.6 WHERE YieldType = 'YIELD_RH_PLACEMENT'; 
+
+UPDATE Yields SET DefaultValue = 1.2 WHERE YieldType = 'YIELD_RH_RV_BASE'; 
 
 
 
@@ -439,7 +442,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item,  Value) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DefaultYieldBias', 'YIELD_RH_GORGO', 								0, -950),
-('DefaultYieldBias', 'YIELD_RV_BASE', 							0, -950);
+('DefaultYieldBias', 'YIELD_RH_RV_BASE', 							0, -950);
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value, Favored) VALUES
@@ -589,7 +592,7 @@ SET PrioritizationYield = 'YIELD_RH_UNDER_ATTACK'
 WHERE SpecializationType = 'BUILD_CITY_DEFENSES';
 
 UPDATE AiBuildSpecializations 
-SET PrioritizationYield = 'YIELD_RV_BASE' 
+SET PrioritizationYield = 'YIELD_RH_RV_BASE' 
 WHERE SpecializationType = 'BUILD_FOR_FAITH';
 
 

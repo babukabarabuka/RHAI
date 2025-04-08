@@ -18,21 +18,21 @@ UPDATE PseudoYields SET DefaultValue = 0.76 WHERE PseudoYieldType = 'PSEUDOYIELD
 UPDATE PseudoYields SET DefaultValue = 11 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_TRADE'; -- 1.0, 6.5
 UPDATE PseudoYields SET DefaultValue = 78.0 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_SPY'; -- 20.0 -- pvs 21, 31, 36
 UPDATE PseudoYields SET DefaultValue = 40 WHERE PseudoYieldType = 'PSEUDOYIELD_DISTRICT'; -- 8.0, pvs 7, 8, 9, 11.5, 12.5, 15, 20, 25, 15, 14, 10
-UPDATE PseudoYields SET DefaultValue = 0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_WONDER'; -- 2.0 -- pvs 0.49
+UPDATE PseudoYields SET DefaultValue = 1.5 WHERE PseudoYieldType = 'PSEUDOYIELD_WONDER'; -- 2.0 -- pvs 0.49, 0.95
 --UPDATE PseudoYields SET DefaultValue = 0.25 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_BONUS'; --  was +0.01 to balance other diplo modifiers (pvs +0.02)
 UPDATE PseudoYields SET DefaultValue = 0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_NUCLEAR_WEAPON'; -- 25.0 - Pvs 39, 52, 50, 47, 46, 45, 33, 20 (test)
-UPDATE PseudoYields SET DefaultValue = 1.0 WHERE PseudoYieldType = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- 1.5 -- 100 In Monopolies mode lol, pvs 7, testing 8 (sets a floor for selling them off) -- pvs 42, 1.8
+UPDATE PseudoYields SET DefaultValue = 0.6 WHERE PseudoYieldType = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- 1.5 -- 100 In Monopolies mode lol, pvs 7, testing 8 (sets a floor for selling them off) -- pvs 42, 1.8, 0.6
 UPDATE PseudoYields SET DefaultValue = 110.0 WHERE PseudoYieldType = 'PSEUDOYIELD_SPACE_RACE'; -- 100.0, pvs 120
 --UPDATE PseudoYields SET DefaultValue = 5 WHERE PseudoYieldType = 'PSEUDOYIELD_CIVIC'; -- 5
 UPDATE PseudoYields SET DefaultValue = 35 WHERE PseudoYieldType = 'PSEUDOYIELD_TECHNOLOGY'; -- 5, pvs 6, 11, 12, 28
 UPDATE PseudoYields SET DefaultValue = 0.75 WHERE PseudoYieldType = 'PSEUDOYIELD_TOURISM'; -- 1, 0.82
-UPDATE PseudoYields SET DefaultValue = 0.3 WHERE PseudoYieldType = 'PSEUDOYIELD_HAPPINESS'; -- 1, pvs 1.15, 1.1, 1.2
+UPDATE PseudoYields SET DefaultValue = 0.3 WHERE PseudoYieldType = 'PSEUDOYIELD_HAPPINESS'; -- 1, pvs 1.15, 1.1, 1.2 -- pvs 0.3, test for duplicates, 0.4
 UPDATE PseudoYields SET DefaultValue = 1.7 WHERE PseudoYieldType = 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS'; -- 0.5, 0.95, 1.05
 UPDATE PseudoYields SET DefaultValue = 0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_ENVIRONMENT'; -- 0.5 ( was doing to many pointless carbon capture projects after the sea level has fully risen)
 UPDATE PseudoYields SET DefaultValue = 0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_FAVOR'; -- 0.7, pvs 0.65, 0.6
 --UPDATE PseudoYields SET DefaultValue = 2.2 WHERE PseudoYieldType = 'PSEUDOYIELD_GOVERNOR'; -- 2, pvs 2.4, 2.6
 UPDATE PseudoYields SET DefaultValue = 300 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_VICTORY_POINT'; -- pvs 120, 150, 165, 150, 130, 180, 200
-UPDATE PseudoYields SET DefaultValue = -0.38 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_GRIEVANCE';
+UPDATE PseudoYields SET DefaultValue = -0.05 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_GRIEVANCE'; -- 0.38
 
 /*
 		<Row PseudoYieldType="PSEUDOYIELD_DIPLOMATIC_VICTORY_POINT" DefaultValue="100"/>
@@ -65,7 +65,7 @@ UPDATE PseudoYields SET DefaultValue = 8 WHERE PseudoYieldType = 'PSEUDOYIELD_GR
 -- City
 
 
-UPDATE PseudoYields SET DefaultValue = 999550 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
+UPDATE PseudoYields SET DefaultValue = 9950 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
 UPDATE PseudoYields SET DefaultValue = 2 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENSES'; -- 200 --pvs 52, 57, 60, 35
 UPDATE PseudoYields SET DefaultValue = 3 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENDING_UNITS'; -- 80, pvs 95, 94, 91
 UPDATE PseudoYields SET DefaultValue = -450 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL'; -- 200 pvs -210, -240, -390
@@ -102,7 +102,7 @@ INSERT OR IGNORE INTO Types (Type, Kind) VALUES
 
 
 
---UPDATE GlobalParameters SET Value = '2.3' WHERE Name = 'AI_BASE_LUXURY_VALUE';	 -- Def 1.5 -- Test pvs 2.2, 5
+--UPDATE GlobalParameters SET Value = '200' WHERE Name = 'AI_BASE_LUXURY_VALUE';	 -- Def 1.5 -- Test pvs 2.2, 5
 
 
 

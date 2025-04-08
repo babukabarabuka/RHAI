@@ -345,18 +345,33 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 
+-- City State Ally -- All Eras
 
--- City State Ally
+INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
+('CityStateAllyDiploPreference');
+INSERT OR IGNORE INTO AiLists (ListType, AgendaType, System) VALUES
+('CityStateAllyDiploPreference', 'TRAIT_AGENDA_CITY_STATE_ALLY', 'Strategies'); -- Is all eras so disabling for now, however less likely to get for science victory etc
 
---INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
---('IndustryLoverPseudoYields');
---INSERT OR IGNORE INTO AiLists (ListType, AgendaType, System) VALUES
---('IndustryLoverPseudoYields', 'TRAIT_AGENDA_PREFER_INDUSTRY', 'PseudoYields');
+
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('CityStateAllyDiploPreference', 'VICTORY_STRATEGY_DIPLOMATIC_VICTORY', 1, -2),
+
 ('CityStateAllyInfluencePreference', 'PSEUDOYIELD_GPP_MERCHANT', 1, 10),
 ('CityStateAllyInfluencePreference', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 6),
 ('CityStateAllyInfluencePreference', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, 5),
 ('CityStateAllyInfluencePreference', 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL', 1, 150);
+
+UPDATE AiFavoredItems SET Value = '75', Favored = '1' WHERE ListType = 'CityStateAllyInfluencePreference' AND Item = 'PSEUDOYIELD_INFLUENCE'; -- DefaultValue=25 Favoured not set
+
+
+
+-- City State Protector -- Early Only
+
+INSERT OR IGNORE INTO AiLists (ListType, AgendaType, System) VALUES
+('CityStateAllyDiploPreference', 'TRAIT_AGENDA_PREFER_CITY_STATE_PROTECTOR', 'Strategies');
+
+
+
 
 -- ('MoneyGrubberGoldPreference', 'YIELD_RH_SOVEREIGNTY_DOUBLE', 				1, 250),
 
@@ -829,8 +844,8 @@ INSERT OR IGNORE INTO AiLists (ListType, AgendaType, System) VALUES
 ('Expansionist_AgendaSettlement',   'TRAIT_AGENDA_EXPANSIONIST', 'PlotEvaluations');
 
 
-INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('Expansionist_AgendaOperations', 'OP_SETTLE', 1, 1);  -- todo ancient and classical only
+--INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+--('Expansionist_AgendaOperations', 'OP_SETTLE', 1, 1);  -- todo ancient and classical only
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
@@ -874,7 +889,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('Expansionist_AgendaSettlement', 'Foreign Continent', 0, 10);
+('Expansionist_AgendaSettlement', 'Foreign Continent', 0, 6);
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
 --('Expansionist_AgendaSettlement', 'Total Yield', 0, 1, 'YIELD_PRODUCTION', 'LOC_SETTLEMENT_RECOMMENDATION_TOTAL_YIELD'),
@@ -919,7 +934,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Expansionist_AgendaYields', 'YIELD_PRODUCTION', 				1, 7);
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('Expansionist_AgendaUnits',        'UNIT_ARCHER', 				1, 5); -- pvs 4
+('Expansionist_AgendaUnits',        'UNIT_HORSEMAN', 				1, 25); -- pvs 5 Archer
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Expansionist_AgendaTechs', 'TECH_BRONZE_WORKING', 						1, 0), 
@@ -933,6 +948,8 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Expansionist_AgendaTechs', 'TECH_CELESTIAL_NAVIGATION', 				1, 100), -- naval expansion
 ('Expansionist_AgendaTechs', 'TECH_SHIPBUILDING', 						1, 100), -- naval expansion
 ('Expansionist_AgendaTechs', 'TECH_CARTOGRAPHY', 						1, 100), -- naval expansion
+
+('Expansionist_AgendaTechs', 'TECH_CASTLES', 							1, 100), -- Courser, Horseman Upgrade
 
 ('Expansionist_AgendaTechs', 'TECH_MILITARY_ENGINEERING', 				1, 0), -- Trebuchet
 

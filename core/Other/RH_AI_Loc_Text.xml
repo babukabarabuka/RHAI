@@ -58,7 +58,7 @@
 			<Text>RH - Extra Late Game Strategic Resources</Text>
 		</Replace>
 		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_DESCRIPTION" Language="en_US">
-			<Text>The AI gains 10 Oil and Aluminium Per Turn at Combined Arms, 10 Uranium at Nuclear Fission Regardless of Improved Resources. Enables the use of Biplanes as the AI not does not need to be as conservative with late game resources</Text>
+			<Text>The AI gains 10 Oil and Aluminium Per Turn at Combined Arms, 10 Uranium at Nuclear Fission Regardless of Improved Resources. Enables the use of Biplanes as the AI does not need to be as conservative with Oil and Aluminium</Text>
 		</Replace>
 
 

@@ -45,7 +45,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 --('AtomicYields', 'YIELD_FOOD', 						1, -10),
 
 
-('AtomicYields', 'YIELD_RH_HAPPINESS_BUILDING', 1, 850),
+('AtomicYields', 'YIELD_RH_HAPPINESS_BUILDING', 1, 950),
 
 ('AtomicYields', 'YIELD_RH_OLIGARCHY',  		0, -950),
 ('AtomicYields', 'YIELD_RH_CLASSICAL_REPUBLIC',  0, -950),
@@ -98,7 +98,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AtomicPseudoYields', 'PSEUDOYIELD_GREATWORK_MUSIC', 1, 350),
 ('AtomicPseudoYields', 'PSEUDOYIELD_GREATWORK_RELIC', 1, 350), 
 
-('AtomicPseudoYields', 'PSEUDOYIELD_HAPPINESS', 		1, 50),
+('AtomicPseudoYields', 'PSEUDOYIELD_HAPPINESS', 		1, 750), -- pvs 50
 ('AtomicPseudoYields', 'PSEUDOYIELD_INFLUENCE', 		1, -35), -- pvs -15
 ('AtomicPseudoYields', 'PSEUDOYIELD_UNIT_AIR_COMBAT', 	1, 30), -- pvs 25
 ('AtomicPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 5),
@@ -180,7 +180,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('InformationYields', 'YIELD_PRODUCTION',		 1, 50), -- Don't need to focus on increasing production when we are about to win - however industrial zones are important, pvs -8, 40
 ('InformationYields', 'YIELD_FOOD',				 0, -35), -- pvs -25
 
-('InformationYields', 'YIELD_RH_HAPPINESS_BUILDING', 1, 250),
+('InformationYields', 'YIELD_RH_HAPPINESS_BUILDING', 1, 750), -- pvs 250
 
 ('InformationYields', 'YIELD_RH_OLIGARCHY',  		0, -950),
 ('InformationYields', 'YIELD_RH_CLASSICAL_REPUBLIC',  0, -950),
@@ -227,7 +227,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('InformationPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -98), -- pvs -14, -25, -75
 
 --('InformationPseudoYields', 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL', 1, 50),
---('InformationPseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, -8),
+('InformationPseudoYields', 'PSEUDOYIELD_HAPPINESS', 		1, 110), -- pvs 0
 ('InformationPseudoYields', 'PSEUDOYIELD_DISTRICT',			 1, -10),
 ('InformationPseudoYields', 'PSEUDOYIELD_INFLUENCE', 		1, -40), -- 40, 33 too high, -20
 ('InformationPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',		 0, -65), -- pvs -7, -50, -35, -40, -45, -60
@@ -250,9 +250,9 @@ WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%';
 */
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('AvoidDarkAges', 'PSEUDOYIELD_INFLUENCE', 					1, 			8),
-('AvoidDarkAges', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS', 		1, 			60),
-('AvoidDarkAges', 'PSEUDOYIELD_WONDER', 					1, 			60);
+('AvoidDarkAges', 'PSEUDOYIELD_INFLUENCE', 					1, 			15),
+('AvoidDarkAges', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS', 		1, 			100),
+('AvoidDarkAges', 'PSEUDOYIELD_WONDER', 					1, 			200); -- pvs 60
 
 -- NO more all civs playing the same way. crazy stuff
 DELETE FROM AiFavoredItems WHERE ListType = 'ClassicalDistricts' AND Item = 'DISTRICT_CAMPUS';

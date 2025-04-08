@@ -235,9 +235,12 @@ INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,			Name,			Value,				 Type) 
 
 -- Project Game Speed Test
 
-INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType, ModifierId)
+INSERT OR IGNORE INTO ProjectCompletionModifiers (ProjectType, ModifierId)
 SELECT ProjectType, 'RH_END_OF_TECH_MOD_NEGATIVE_XXS' 
-FROM Projects;
+FROM Projects
+WHERE ProjectType LIKE 'PROJECT_ENHANCE_DISTRICT%';
+
+
 
 --INSERT OR IGNORE INTO ProjectModifiers (ProjectType,			ModifierId)
 --SELECT ProjectType, 'RH_END_OF_TECH_MOD_NEGATIVE_XXS'
@@ -1285,7 +1288,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_CITY_CENTRE_MOD_XXS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_XXS',							'Amount'   , 0.1), -- Pvs 3 Total, 0.3
+		('RH_CITY_CENTRE_MOD_XXS',							'Amount'   , 0.05), -- Pvs 3 Total, 0.3
 
 		('RH_CITY_CENTRE_MOD_XS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
 		('RH_CITY_CENTRE_MOD_XS',							'Amount'   , 1), -- Pvs 4 Total
@@ -1318,6 +1321,18 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_STAR_FORT', 		 'RH_CITY_CENTRE_MOD_XS'),
 ('BUILDING_CASTLE', 		 'RH_CITY_CENTRE_MOD_MS'),
 ('BUILDING_WALLS', 			 'RH_CITY_CENTRE_MOD_XS'),
+
+
+('BUILDING_HANGING_GARDENS', 			 'RH_CITY_CENTRE_MOD_XL'),
+('BUILDING_TEMPLE_ARTEMIS', 			 'RH_CITY_CENTRE_MOD_XL'),
+('BUILDING_GREAT_BATH', 				 'RH_CITY_CENTRE_MOD_S'),
+
+('BUILDING_COLOSSEUM', 					 'RH_CITY_CENTRE_MOD_XL'),
+('BUILDING_APADANA', 					 'RH_CITY_CENTRE_MOD_L'),
+('BUILDING_GREAT_LIBRARY', 				 'RH_CITY_CENTRE_MOD_S'),
+
+
+('BUILDING_ARENA', 						 'RH_CITY_CENTRE_MOD_S'),
 
 ('BUILDING_SEWER', 			'RH_CITY_CENTRE_MOD_S'),
 ('BUILDING_FLOOD_BARRIER', 	'RH_CITY_CENTRE_MOD_XL');
@@ -1503,7 +1518,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_SCIENCE_VICTORY_BASE_MOD_XXL',		'YieldType', 	'YIELD_RH_SCIENCE_VICTORY_BASE'),
-		('RH_SCIENCE_VICTORY_BASE_MOD_XXL',						'Amount'   , 750), 
+		('RH_SCIENCE_VICTORY_BASE_MOD_XXL',						'Amount'   , 5000), -- pvs 750
 
 		('RH_SCIENCE_VICTORY_BASE_MOD_XL',		'YieldType', 	'YIELD_RH_SCIENCE_VICTORY_BASE'),
 		('RH_SCIENCE_VICTORY_BASE_MOD_XL',						'Amount'   , 400), 
@@ -1770,19 +1785,19 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_RV_BASE_MOD_XL',		'YieldType', 	'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_XL',						'Amount'   , 750), 
+		('RH_RV_BASE_MOD_XL',						'Amount'   , 1200), 
 
 		('RH_RV_BASE_MOD_MXL',		'YieldType', 	'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_MXL',						'Amount'   , 400), 
+		('RH_RV_BASE_MOD_MXL',						'Amount'   , 950), 
 
 		('RH_RV_BASE_MOD_L',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_L',							'Amount'   , 275), 
+		('RH_RV_BASE_MOD_L',							'Amount'   , 550), 
 
 		('RH_RV_BASE_MOD_ML',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_ML',							'Amount'   , 140), 
+		('RH_RV_BASE_MOD_ML',							'Amount'   , 330), 
 
 		('RH_RV_BASE_MOD_S',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_S',							'Amount'   , 20),
+		('RH_RV_BASE_MOD_S',							'Amount'   , 25),
 
 		('RH_RV_BASE_MOD_XS',		'YieldType', 		'YIELD_RH_RV_BASE'),
 		('RH_RV_BASE_MOD_XS',							'Amount'   , 5),
@@ -1889,7 +1904,7 @@ INSERT INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEff
 (554, 'WC_RES_MERCENARY_COMPANIES', 2, 'RH_RV_BASE_MOD_L'); -- Double cost (AI absolutely loves the other option)
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(633, 'WC_RES_WORLD_RELIGION', 1, 'RH_RV_BASE_MOD_L');
+(484, 'WC_RES_WORLD_RELIGION', 1, 'RH_RV_BASE_MOD_L');
 
 
 /*
@@ -1936,6 +1951,37 @@ INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType',
 
 ------------------------------------------------------------------------------------------------
 -- RH TEMP
+
+
+-- Civics
+-- CIVIC_FEUDALISM Rush
+
+-- Insert new Culture modifier entries
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES	
+	('RH_CULTURE_TEMP_D', 'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE', 'RH_AI_ANCIENT_ONLY_REQ_S'),		
+	('RH_CULTURE_TEMP_F', 'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE', 'RH_AI_ANCIENT_ONLY_REQ_S'),
+	('RH_CULTURE_TEMP_G', 'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE', 'RH_AI_ANCIENT_ONLY_REQ_S');			
+
+
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES	
+	('RH_CULTURE_TEMP_D', 'YieldType', 'YIELD_CULTURE'),
+	('RH_CULTURE_TEMP_D', 'Amount', 3000),
+
+	('RH_CULTURE_TEMP_F', 'YieldType', 'YIELD_CULTURE'),
+	('RH_CULTURE_TEMP_F', 'Amount', 3000),
+
+	('RH_CULTURE_TEMP_G', 'YieldType', 'YIELD_CULTURE'),
+	('RH_CULTURE_TEMP_G', 'Amount', 3000);
+
+
+INSERT OR IGNORE INTO CivicModifiers (CivicType, ModifierId) VALUES
+	('CIVIC_DEFENSIVE_TACTICS', 'RH_CULTURE_TEMP_D'),
+	('CIVIC_FEUDALISM', 		'RH_CULTURE_TEMP_F'),
+	('CIVIC_GAMES_RECREATION',  'RH_CULTURE_TEMP_G');
+
+
+INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
+		('POLICY_SERFDOM', 		 'RH_CULTURE_TEMP_F');
 
 
 

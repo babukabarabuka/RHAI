@@ -1149,7 +1149,7 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipS
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('RH_UNDER_HEAVY_ATTACK_Operations', 'OP_RH_DEFENSE_HP', 						1, 1); -- 3 in Total
+('RH_UNDER_HEAVY_ATTACK_Operations', 'OP_RH_DEFENSE_HP', 						1, 1); -- Only use
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES

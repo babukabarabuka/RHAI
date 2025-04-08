@@ -48,7 +48,7 @@ UPDATE AiOperationDefs SET OperationType = 'OP_DEFENSE' WHERE OperationName = 'C
 
 UPDATE AiOperationDefs SET MinOddsOfSuccess = 0, MustHaveUnits = 2 WHERE OperationName = 'City Defense'; -- 0%, -1 -- pvs 3 (and 0.01)
 
-UPDATE OpTeamRequirements SET MinNumber = 2, MaxNumber = 8 WHERE TeamName = 'City Defense' AND AiType = 'UNITAI_COMBAT'; --testing 6, 7
+UPDATE OpTeamRequirements SET MinNumber = 2, MaxNumber = 5 WHERE TeamName = 'City Defense' AND AiType = 'UNITAI_COMBAT'; --testing 6, 7, pvs 8
 UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 0 WHERE TeamName = 'City Defense' AND AiType = 'UNITAI_EXPLORE'; -- def min 0, no max lol, pvs max 0 -- pvs 1
 --UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 1, MaxPercentage = 0.25 WHERE TeamName = 'City Defense' AND AiType = 'UNITTYPE_NAVAL_RANGED'; 
 
@@ -59,7 +59,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 ('City Defense', 'UNITTYPE_MELEE',  0, 5, 0, 1); -- (can be 2 as long as there are 4 units)
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
-('City Defense', 'UNITTYPE_RANGED', 							  1, 7), 
+('City Defense', 'UNITTYPE_RANGED', 							  2, 5), 
 ('City Defense', 'UNITTYPE_NUCLEAR', 							  0, 0),
 ('City Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					  0, 1), -- test 0
 ('City Defense', 'UNITTYPE_SIEGE',  						      0, 2), -- for bombers, gdrs

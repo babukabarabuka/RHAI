@@ -230,7 +230,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('YongleProjects', 'PROJECT_LIJIA_FOOD', 1, 900), -- pvs 0, 90
 
 ('YonglePseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 350), -- Food
-('YonglePseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 125), -- Food
+('YonglePseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 350), -- Food
 ('YonglePseudoYields', 'PSEUDOYIELD_GOVERNOR', 1, 10), -- Audience -- already in growth
 
 ('YonglePseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 15),

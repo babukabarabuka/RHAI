@@ -286,7 +286,7 @@ INSERT OR IGNORE INTO TechnologyModifiers (TechnologyType, ModifierId)  VALUES
 
 
 INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES		
-		('GOVERNMENT_MONARCHY', 			'RH_DIPLO_MOD_L');
+		('GOVERNMENT_MONARCHY', 			'RH_DIPLO_MOD_XXL');
 
 INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType,		ModifierId)  VALUES	
 		('PROJECT_CARBON_RECAPTURE',	'RH_DIPLO_MOD_S'),  -- Reduces CO2 to potentially 0 and earns 30 diplo favor
@@ -455,7 +455,7 @@ INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType',
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(732, 'WC_RES_WORLD_RELIGION', 1, 'RH_AT_WAR_MOD_M'); -- +10 Strength
+(793, 'WC_RES_WORLD_RELIGION', 1, 'RH_AT_WAR_MOD_XL'); -- +10 Strength
 
 
 
@@ -773,6 +773,8 @@ INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType',
 (827, 'WC_RES_TRADE_TREATY', 2, 'RH_UNDER_ATTACK_MOD_XL'); -- Ban International Routes
 
 
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(794, 'WC_RES_WORLD_RELIGION', 1, 'RH_UNDER_ATTACK_MOD_L'); -- +10 Strength, New
 
 
 

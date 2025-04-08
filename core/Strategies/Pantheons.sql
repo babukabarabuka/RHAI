@@ -233,3 +233,161 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'REQUIRES_PLAYER_IS_AI');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'REQUIRES_PLOT_HAS_TAG_GODDESS_OF_FESTIVAL'); -- exists
 
+
+
+
+
+-- Lady of the Reeds Extra Preference
+
+/*
+	<Modifiers>
+		<Row>
+			<ModifierId>LADY_OF_THE_REEDS_PRODUCTION_MODIFIER</ModifierId>
+			<ModifierType>MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD</ModifierType>
+			<SubjectRequirementSetId>PLOT_HAS_REEDS_REQUIREMENTS</SubjectRequirementSetId>
+		</Row>
+		<Row>
+			<ModifierId>LADY_OF_THE_REEDS_PRODUCTION</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_ATTACH_MODIFIER</ModifierType>
+			<SubjectRequirementSetId>CITY_FOLLOWS_PANTHEON_REQUIREMENTS</SubjectRequirementSetId>
+		</Row>
+		
+	<ModifierArguments>		
+		<Row>
+			<ModifierId>LADY_OF_THE_REEDS_PRODUCTION</ModifierId>
+			<Name>ModifierId</Name>
+			<Value>LADY_OF_THE_REEDS_PRODUCTION_MODIFIER</Value>
+		</Row>
+		<Row>
+			<ModifierId>LADY_OF_THE_REEDS_PRODUCTION_MODIFIER</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_PRODUCTION</Value>
+		</Row>
+		<Row>
+			<ModifierId>LADY_OF_THE_REEDS_PRODUCTION_MODIFIER</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+
+	<BeliefModifiers>			
+
+		<Row BeliefType="BELIEF_LADY_OF_THE_REEDS_AND_MARSHES">
+			<ModifierId>LADY_OF_THE_REEDS_PRODUCTION</ModifierId>
+		</Row>
+*/
+		
+
+-- Extra Reeds Preference
+
+-- Insert rows into the Modifiers table
+/*
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_RH', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S'),
+    ('LADY_OF_THE_REEDS_PRODUCTION_RH', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS');
+
+
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('LADY_OF_THE_REEDS_PRODUCTION_RH', 'ModifierId', 'LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_RH'),
+    ('LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_RH', 'YieldType', 'YIELD_PRODUCTION'),
+    ('LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_RH', 'Amount', '4000');
+
+
+INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
+    ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'LADY_OF_THE_REEDS_PRODUCTION_RH');
+
+
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S', 'REQUIREMENTSET_TEST_ALL'); -- Any not all by default
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S', 'RH_PLAYER_NOT_CLASSICAL_ERA');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S', 'REQUIRES_PLAYER_IS_AI');
+
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S', 'REQUIRES_PLOT_HAS_MARSH');
+--INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S', 'REQUIRES_PLOT_HAS_OASIS');
+--INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_PLOT_HAS_REEDS_REQUIREMENTS_REQ_S', 'REQUIRES_PLOT_HAS_FLOODPLAINS');
+
+*/
+
+
+-------------------------------------------------------------------------
+
+-- Extra Reeds Preference for Marsh
+-- Insert rows into the Modifiers table
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_MARSH', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'MARSH_PLOT_HAS_REEDS_REQUIREMENTS'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MARSH', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS');
+
+-- Insert ModifierArguments for Marsh
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MARSH', 'ModifierId', 'RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_MARSH'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_MARSH', 'YieldType', 'YIELD_RH_PRODUCTION'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_MARSH', 'Amount', '7'); -- pvs 10
+
+-- Link belief to Marsh modifier
+INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
+    ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'RH_LADY_OF_THE_REEDS_PRODUCTION_MARSH');
+
+-- RequirementSet for Marsh
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES 
+    ('MARSH_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES 
+    ('MARSH_PLOT_HAS_REEDS_REQUIREMENTS', 'RH_PLAYER_AT_ANCIENT_ERA'),
+    ('MARSH_PLOT_HAS_REEDS_REQUIREMENTS', 'RH_PLAYER_NOT_CLASSICAL_ERA'),
+    ('MARSH_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIRES_PLAYER_IS_AI'),
+    ('MARSH_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIRES_PLOT_HAS_MARSH');
+
+
+-- Extra Reeds Preference for Floodplains
+-- Insert rows into the Modifiers table
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_FLOODPLAINS', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'FLOODPLAINS_PLOT_HAS_REEDS_REQUIREMENTS'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_FLOODPLAINS', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS');
+
+-- Insert ModifierArguments for Floodplains
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_FLOODPLAINS', 'ModifierId', 'RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_FLOODPLAINS'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_FLOODPLAINS', 'YieldType', 'YIELD_RH_PRODUCTION'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_FLOODPLAINS', 'Amount', '9'); -- pvs 10
+
+-- Link belief to Floodplains modifier
+INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
+    ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'RH_LADY_OF_THE_REEDS_PRODUCTION_FLOODPLAINS');
+
+-- RequirementSet for Floodplains
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES 
+    ('FLOODPLAINS_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES 
+    ('FLOODPLAINS_PLOT_HAS_REEDS_REQUIREMENTS', 'RH_PLAYER_AT_ANCIENT_ERA'),
+    ('FLOODPLAINS_PLOT_HAS_REEDS_REQUIREMENTS', 'RH_PLAYER_NOT_CLASSICAL_ERA'),
+    ('FLOODPLAINS_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIRES_PLAYER_IS_AI'),
+    ('FLOODPLAINS_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIRES_PLOT_HAS_FLOODPLAINS');
+
+
+-- Extra Reeds Preference for Oasis
+-- Insert rows into the Modifiers table
+INSERT INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_OASIS', 'MODIFIER_CITY_PLOT_YIELDS_ADJUST_PLOT_YIELD', 'OASIS_PLOT_HAS_REEDS_REQUIREMENTS'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_OASIS', 'MODIFIER_ALL_CITIES_ATTACH_MODIFIER', 'CITY_FOLLOWS_PANTHEON_REQUIREMENTS');
+
+-- Insert ModifierArguments for Oasis
+INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_OASIS', 'ModifierId', 'RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_OASIS'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_OASIS', 'YieldType', 'YIELD_RH_PRODUCTION'),
+    ('RH_LADY_OF_THE_REEDS_PRODUCTION_MODIFIER_OASIS', 'Amount', '5');
+
+-- Link belief to Oasis modifier
+INSERT INTO BeliefModifiers (BeliefType, ModifierId) VALUES
+    ('BELIEF_LADY_OF_THE_REEDS_AND_MARSHES', 'RH_LADY_OF_THE_REEDS_PRODUCTION_OASIS');
+
+-- RequirementSet for Oasis
+INSERT INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES 
+    ('OASIS_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES 
+    ('OASIS_PLOT_HAS_REEDS_REQUIREMENTS', 'RH_PLAYER_AT_ANCIENT_ERA'),
+    ('OASIS_PLOT_HAS_REEDS_REQUIREMENTS', 'RH_PLAYER_NOT_CLASSICAL_ERA'),
+    ('OASIS_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIRES_PLAYER_IS_AI'),
+    ('OASIS_PLOT_HAS_REEDS_REQUIREMENTS', 'REQUIRES_PLOT_HAS_OASIS');

@@ -580,12 +580,12 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_GOV_MODIFIER_MERCHANT',					'YieldType', 'YIELD_GOLD'),
 		('RH_GOV_MODIFIER_MERCHANT',					'Amount'   , 10), -- pvs 13, 15
 		('RH_GOV_MODIFIER_CLASSICAL',					'YieldType', 'YIELD_CULTURE'),
-		('RH_GOV_MODIFIER_CLASSICAL',					'Amount'   , 2), -- pvs 1
+		('RH_GOV_MODIFIER_CLASSICAL',					'Amount'   , 3), -- pvs 1
 		('RH_GOV_MODIFIER_THEOCRACY_REL',				'YieldType', 'YIELD_FAITH'),
 		('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 9), -- pvs 17, 22, 21, 11
 		--('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 1),
 		('RH_GOV_MODIFIER_MONARCHY',					'YieldType', 'YIELD_SCIENCE'),
-		('RH_GOV_MODIFIER_MONARCHY',					'Amount'   , 1), -- pvs -1, -2, -3g
+		('RH_GOV_MODIFIER_MONARCHY',					'Amount'   , 10), -- pvs -1, -2, -3g
 		('RH_GOV_MODIFIER_CORPORATE_LIBERTARIANISM',	'YieldType', 'YIELD_FAITH'),
 		('RH_GOV_MODIFIER_CORPORATE_LIBERTARIANISM',	'Amount'   , 9),
 		('RH_GOV_MODIFIER_DIGITAL_DEMOCRACY',			'YieldType', 'YIELD_CULTURE'),
@@ -603,9 +603,9 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_GOV_MODIFIER_FASCISM',						'YieldType', 'YIELD_RH_AT_WAR'),
 		('RH_GOV_MODIFIER_FASCISM',						'Amount'   , 4),	-- pvs 4 At 4 is not chosen	
 		('RH_GOV_MODIFIER_FASCISM_WAR',					'YieldType', 'YIELD_RH_AT_WAR'),
-		('RH_GOV_MODIFIER_FASCISM_WAR',					'Amount'   , 12), -- pvs 4 gold
-		('RH_GOV_MODIFIER_OLIGARCHY',					'YieldType', 'YIELD_RH_AT_WAR'),
-		('RH_GOV_MODIFIER_OLIGARCHY',					'Amount'   , 1),
+		('RH_GOV_MODIFIER_FASCISM_WAR',					'Amount'   , 20), -- pvs 4 gold
+		('RH_GOV_MODIFIER_OLIGARCHY',					'YieldType', 'YIELD_PRODUCTION'),
+		('RH_GOV_MODIFIER_OLIGARCHY',					'Amount'   , 5), -- Single only
 		('RH_GOV_MODIFIER_OLIGARCHY_WAR',				'YieldType', 'YIELD_RH_AT_WAR'),
 		('RH_GOV_MODIFIER_OLIGARCHY_WAR',				'Amount'   , 95); -- 2 too low, 6, 10 (all cities), 75
 
@@ -1571,7 +1571,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_GOV_SEA',	'Amount'       , 1);  
 */
 
-/*
+
 INSERT INTO Modifiers(ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 --('GOD_OF_THE_SEA_RESOURCES_PRODUCTION_AI',          'MODIFIER_ALL_CITIES_ATTACH_MODIFIER',          'REQUIREMENTS_CITY_FOLLOWS_PANTHEON_ANCIENT'),
 ('GOD_OF_THE_SEA_RESOURCES_PRODUCTION_AI_2',          'MODIFIER_ALL_CITIES_ATTACH_MODIFIER',          'CITY_FOLLOWS_PANTHEON_REQUIREMENTS'),
@@ -1582,7 +1582,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 ('GOD_OF_THE_SEA_RESOURCES_PRODUCTION_AI_MODIFIER_2', 'YieldType', 'YIELD_FOOD'),
 ('GOD_OF_THE_SEA_RESOURCES_PRODUCTION_AI_MODIFIER_2', 'Amount',    '5'); -- pvs 3, 4
 
-*/
+
 
 
 /*
@@ -1610,7 +1610,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 		('RH_GOV_FAITH',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
-		('RH_GOV_FAITH',			'YieldType',			'YIELD_FAITH'),
+		('RH_GOV_FAITH',			'YieldType',			'YIELD_RH_RV_BASE'),
 		('RH_GOV_FAITH',						'Amount'   , 2);
 
 
@@ -1619,14 +1619,23 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_GOV_SCIENCE',			'YieldType',			'YIELD_SCIENCE'),
-		('RH_GOV_SCIENCE',						'Amount'   , 6);
+		('RH_GOV_SCIENCE',						'Amount'   , 8);
+
+INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
+		('RH_GOV_SCIENCE_S',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S');
+
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('RH_GOV_SCIENCE_S',			'YieldType',			'YIELD_SCIENCE'),
+		('RH_GOV_SCIENCE_S',						'Amount'   , 3);
+
+
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
 		('RH_GOV_CULTURE',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_GOV_CULTURE',			'YieldType',			'YIELD_CULTURE'),
-		('RH_GOV_CULTURE',						'Amount'   , 4);
+		('RH_GOV_CULTURE',						'Amount'   , 15);
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
 		('RH_GOV_FOOD',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S');
@@ -1635,7 +1644,12 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_GOV_FOOD',			'YieldType',			'YIELD_FOOD'),
 		('RH_GOV_FOOD',						'Amount'   , 3);
 
+INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
+		('RH_GOV_FOOD_L',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S');
 
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('RH_GOV_FOOD_L',			'YieldType',			'YIELD_FOOD'),
+		('RH_GOV_FOOD_L',						'Amount'   , 6);
 
 
 
@@ -1643,7 +1657,7 @@ INSERT INTO GovernorPromotionModifiers     (GovernorPromotionType,			ModifierId)
 			('GOVERNOR_PROMOTION_EDUCATOR_LIBRARIAN',					'RH_GOV_SCIENCE'),	
 			('GOVERNOR_PROMOTION_EDUCATOR_CONNOISSEUR',					'RH_GOV_CULTURE'),
 			('GOVERNOR_PROMOTION_EDUCATOR_RESEARCHER',					'RH_GOV_SCIENCE'),
-			('GOVERNOR_PROMOTION_EDUCATOR_GRANTS',						'RH_GOV_SCIENCE'),
+			('GOVERNOR_PROMOTION_EDUCATOR_GRANTS',						'RH_GOV_SCIENCE_S'),
 			
 			('GOVERNOR_PROMOTION_BUILDER_GUILDMASTER',					'GOD_OF_THE_SEA_RESOURCES_PRODUCTION_AI_2'),
 			('GOVERNOR_PROMOTION_AQUACULTURE',							'GOD_OF_THE_SEA_RESOURCES_PRODUCTION_AI_2'),
@@ -1651,7 +1665,7 @@ INSERT INTO GovernorPromotionModifiers     (GovernorPromotionType,			ModifierId)
 			('GOVERNOR_PROMOTION_CARDINAL_BISHOP',						'RH_GOV_FAITH'),
 			
 			('GOVERNOR_PROMOTION_RESOURCE_MANAGER_GROUNDBREAKER',		'RH_GOV_FOOD'),
-			('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS',	'RH_GOV_FOOD'),
+			('GOVERNOR_PROMOTION_RESOURCE_MANAGER_SURPLUS_LOGISTICS',	'RH_GOV_FOOD_L'),
 			('GOVERNOR_PROMOTION_RESOURCE_MANAGER_VERTICAL_INTEGRATION','RH_GOV_PRODUCTION');
 					
 					
@@ -1728,9 +1742,17 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_GOVN_UNDER_ATTACK',			'YieldType',			'YIELD_RH_UNDER_ATTACK'),
 		('RH_GOVN_UNDER_ATTACK',						'Amount'   , 10); 
 
+INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
+		('RH_GOVN_UNDER_ATTACK_L',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_WAR_REQ_S');
+
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('RH_GOVN_UNDER_ATTACK_L',			'YieldType',			'YIELD_RH_UNDER_ATTACK'),
+		('RH_GOVN_UNDER_ATTACK_L',						'Amount'   , 30); 
+
+
 INSERT INTO GovernorPromotionModifiers     (GovernorPromotionType,			ModifierId)   VALUES	
 		('GOVERNOR_PROMOTION_REDOUBT',					'RH_GOVN_UNDER_ATTACK'),
-		('GOVERNOR_PROMOTION_GARRISON_COMMANDER',		'RH_GOVN_UNDER_ATTACK'), -- Units defending within the city's territory get +5 Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn towards your civilization.
+		('GOVERNOR_PROMOTION_GARRISON_COMMANDER',		'RH_GOVN_UNDER_ATTACK_L'), -- Units defending within the city's territory get +5 Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn towards your civilization.
 		('GOVERNOR_PROMOTION_EMBRASURE',				'RH_GOVN_UNDER_ATTACK'); -- City gains an additional Ranged Strike per turn. Military units trained in this city start with a free promotion that do not already start with a free promotion.
 
 

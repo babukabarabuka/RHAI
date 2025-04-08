@@ -28,7 +28,7 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_UNFRIENDLY" DiplomaticActionType="DIPLOACTION_JOINT_WAR"/>
-			<Set Worth="-95" Cost="95" /> 
+			<Set Worth="-100" Cost="100" /> 
 		</Update>				
 		
 
@@ -44,12 +44,12 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_UNFRIENDLY" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="100" Worth="-100" /> <!-- def 0, 0, pvs 20, 50,0 -->
+			<Set Cost="200" Worth="-200" /> <!-- def 0, 0, pvs 20, 50,0, 100 100 200 Test -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="80" Worth="-80" /> <!-- def 0, 0, pvs 20, 40,0 -->
+			<Set Cost="95" Worth="-95" /> <!-- def 0, 0, pvs 20, 40,0, 80 80 -->
 		</Update>
 		
 		<Update>
@@ -137,47 +137,47 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_DECLARE_FRIENDSHIP"/>
-			<Set Worth="-44" Cost="44" /> <!-- Often Declared at -20, 20, sometimes declared at -40, 40 -->
+			<Set Worth="-52" Cost="52" /> <!-- Often Declared at -20, 20, sometimes declared at -40, 40, 45 45 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_UNFRIENDLY" DiplomaticActionType="DIPLOACTION_DECLARE_FRIENDSHIP"/>
-			<Set Worth="-50" Cost="50" /> 
+			<Set Worth="-70" Cost="70" /> 
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_GOLDEN_AGE_WAR"/>
-			<Set Worth="90" Cost="-90" /> <!-- pvs 20, -20 -->
+			<Set Worth="100" Cost="-100" /> <!-- pvs 20, -20 -->
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_IDEOLOGICAL_WAR"/>
-			<Set Worth="85" Cost="-85" /> 
+			<Set Worth="100" Cost="-100" /> 
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_WAR_OF_RETRIBUTION"/> <!-- Broken Promise -->
-			<Set Worth="80" Cost="-80" /> <!-- pvs 5, -5 -->
+			<Set Worth="100" Cost="-100" /> <!-- pvs 5, -5 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_COLONIAL_WAR"/> <!-- 2 Era Behind -->
-			<Set Worth="80" Cost="-80" /> 
+			<Set Worth="100" Cost="-100" /> 
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_RECONQUEST_WAR"/> 
-			<Set Worth="80" Cost="-80" /> 
+			<Set Worth="100" Cost="-100" /> 
 		</Update>		
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_FORMAL_WAR"/> <!-- Testing over Surprise War -->
-			<Set Worth="70" Cost="-70" /> 
+			<Set Worth="90" Cost="-90" /> 
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_HOLY_WAR"/> <!-- Testing over Surprise War -->
-			<Set Worth="80" Cost="-80" /> 
+			<Set Worth="100" Cost="-100" /> 
 		</Update>			
 		
 		
@@ -196,12 +196,12 @@
 
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_OPEN_BORDERS"/> 
-			<Set Worth="0" Cost="3" /> <!-- pvs 0, 10, 10, 0 but can declare open borders on first meet -->
+			<Set Worth="0" Cost="9" /> <!-- pvs 0, 10, 10, 0 but can declare open borders on first meet -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_UNFRIENDLY" DiplomaticActionType="DIPLOACTION_OPEN_BORDERS"/> 
-			<Set Worth="0" Cost="5" /> <!-- pvs 0, 10 -->
+			<Set Worth="0" Cost="35" /> <!-- pvs 0, 10, 0, 5, 0 20 -->
 		</Update>		
 				
 		
@@ -226,7 +226,7 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_FRIENDLY"/>
-			<Set DiplomaticYieldBonus="-35" /> <!-- test -->
+			<Set DiplomaticYieldBonus="-40" /> <!-- test -->
 		</Update>
 		
 		<Update>
@@ -255,18 +255,18 @@
 		<Row ListType="Diplo_Def" LeaderType="TRAIT_LEADER_MAJOR_CIV" System="DiplomaticActions"/>
 	</AiLists>	
 	<AiFavoredItems>
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_LIBERATION_WAR" Favored="true" Value="35" /> <!-- 0 for starting War -->
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_HOLY_WAR" Value="40" /> <!-- 50% Reduction -->
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_COLONIAL_WAR" Favored="true" Value="60" /> <!-- 50% Reduction 2 Eras Behind -->
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_IDEOLOGICAL_WAR" Favored="true" Value="60" /> <!-- 50% Reduction Different Ideology Late Game -->
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_GOLDEN_AGE_WAR" Favored="true" Value="80" /> <!-- 75%!! Reduction But has to have To Arms golden age dedication-->
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_LIBERATION_WAR" Favored="true" Value="80" /> <!-- 0 for starting War -->
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_HOLY_WAR" Favored="true" Value="80" /> <!-- 50% Reduction -->
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_COLONIAL_WAR" Favored="true" Value="80" /> <!-- 50% Reduction 2 Eras Behind -->
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_IDEOLOGICAL_WAR" Favored="true" Value="80" /> <!-- 50% Reduction Different Ideology Late Game -->
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_GOLDEN_AGE_WAR" Favored="true" Value="90" /> <!-- 75%!! Reduction But has to have To Arms golden age dedication-->
 		
 		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_FORMAL_WAR" Value="25" />
 		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_SURPRISE_WAR" Value="10" />
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_WAR_OF_RETRIBUTION" Value="42" Favored="true" />
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_PROTECTORATE_WAR" Favored="true" Value="45" /> <!-- 0 for city state -->
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_RECONQUEST_WAR" Favored="true" Value="50" />
-		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_TERRITORIAL_WAR" Favored="true" Value="35" /> <!-- 25% Reduction -->
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_WAR_OF_RETRIBUTION" Value="60" Favored="true" />
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_PROTECTORATE_WAR" Favored="true" Value="70" /> <!-- 0 for city state -->
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_RECONQUEST_WAR" Favored="true" Value="80" />
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_DECLARE_TERRITORIAL_WAR" Favored="true" Value="60" /> <!-- 25% Reduction -->
 		<Row ListType="Diplo_Def" Item="DIPLOACTION_USE_NUCLEAR_WEAPON" Favored="true" Value="9000" /> <!-- Pvs 900 -->
 
 		<Row ListType="Diplo_Def" Item="DIPLOACTION_ALLIANCE_MILITARY" Favored="true" />
@@ -282,17 +282,17 @@
 	</AiFavoredItems>	
 	
 	
-	<DiplomaticActions>
+	<!--DiplomaticActions>
 		<Update>
-			<Set Cost="10"></Set> <!-- pvs 38, 35, 32, 25, 18 -->
-			<Where DiplomaticActionType="DIPLOACTION_DECLARE_WAR_MINOR_CIV"></Where>
+			<Set Cost="5"></Set> <!-- pvs 38, 35, 32, 25, 18 -->
+			<!--Where DiplomaticActionType="DIPLOACTION_DECLARE_WAR_MINOR_CIV"></Where>
 		</Update>
-	 </DiplomaticActions>
+	 </DiplomaticActions-->
 	
 	
 	<DiplomaticStateTransitions>
 	
-	<Row BaseState="DIPLO_STATE_UNFRIENDLY" TransitionState="DIPLO_STATE_WAR" AllowTransitionCheck="CanGoToWar" RequireTransitionMin="-15" OnTransitionAction="GoToWar"/>
+	<Row BaseState="DIPLO_STATE_UNFRIENDLY" TransitionState="DIPLO_STATE_WAR" AllowTransitionCheck="CanGoToWar" RequireTransitionMin="-5" OnTransitionAction="GoToWar"/>
 	
 	<Row BaseState="DIPLO_STATE_NEUTRAL" TransitionState="DIPLO_STATE_WAR" AllowTransitionCheck="CanGoToWar" RequireTransitionMin="-5" OnTransitionAction="GoToWar"/> <!-- pvs min +10, +25 -->
 	
@@ -300,10 +300,10 @@
 	
 	
 	
-		<!--Update>
-			<Set RequireTransitionMin="-10"></Set> 
-			<Where BaseState="DIPLO_STATE_DENOUNCED" TransitionState="DIPLO_STATE_WAR"></Where> <!-- May have reduced wars? -->
-		<!--/Update-->	
+		<Update>
+			<Set RequireTransitionMin="0"></Set> 
+			<Where BaseState="DIPLO_STATE_DENOUNCED" TransitionState="DIPLO_STATE_WAR"></Where> <!-- May have reduced wars at -10?, hopefully will reduce barriers now -->
+		</Update>	
 	
 		<Update>
 			<Set RequireTransitionMin="-20" AllowTransitionMax="5"></Set> <!-- Def 15, Slightly Slower -->

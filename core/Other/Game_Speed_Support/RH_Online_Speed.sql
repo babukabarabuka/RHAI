@@ -3,10 +3,10 @@
 
 
 UPDATE PseudoYields SET DefaultValue =  1.9 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ADMIRAL'; -- 		def 0.5 (for all gpp) -- pvs 0.5, 1.6
-UPDATE PseudoYields SET DefaultValue =  1.9 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ARTIST'; -- 		0.5, 1
+UPDATE PseudoYields SET DefaultValue =  2.2 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ARTIST'; -- 		0.5, 1, 1.9
 UPDATE PseudoYields SET DefaultValue =  2.2 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ENGINEER'; -- 	0.5 -- pvs 0.7, 0.8 AI doesn't focus enough, 2, 2.1
 UPDATE PseudoYields SET DefaultValue =  22.5 	WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_GENERAL'; -- 		0.5 -- 0.45, 0.5, 0.55, 0.6, 0.7, 1.05, 2.4, 3.2, 10.5, 12.5, 14.5, 18.5
-UPDATE PseudoYields SET DefaultValue =  2.6 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MERCHANT'; -- 		0.5 -- pvs 0.6, 0.7, 0.85, running to many projects, 0.8, 1.2, 1.3, 1.7, 2.0
+UPDATE PseudoYields SET DefaultValue =  5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MERCHANT'; -- 		0.5 -- pvs 0.6, 0.7, 0.85, running to many projects, 0.8, 1.2, 1.3, 1.7, 2.0, 2.6, 3, 3.5
 UPDATE PseudoYields SET DefaultValue =  1.5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 		0.5, 1
 UPDATE PseudoYields SET DefaultValue =  2.5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_PROPHET'; -- 		0.5, 0.6, 0.8, 0.85, 1, 4
 UPDATE PseudoYields SET DefaultValue =  2.1 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_SCIENTIST'; -- 	0.5, 0.8, 0.9, 2	
@@ -30,14 +30,14 @@ UPDATE AiFavoredItems SET Value = 15 WHERE ListType = 'AncientPseudoYields' AND 
 
 UPDATE AiFavoredItems SET Value = 550 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- std 30, pvs 300, 400
 UPDATE AiFavoredItems SET Value = 350 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_GENERAL'; -- std 250
-UPDATE AiFavoredItems SET Value = 600 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- std 15, 300, 500
+UPDATE AiFavoredItems SET Value = 950 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- std 15, 300, 500, 600
 
 UPDATE AiFavoredItems SET Value = 5 WHERE ListType   = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_DISTRICT'; -- std -5
 
 UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 50
 UPDATE AiFavoredItems SET Value = 750 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- std 20, Player can get them easily, 250, 550
 UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_GENERAL'; -- std 75
-UPDATE AiFavoredItems SET Value = 500 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- std 50, 100
+UPDATE AiFavoredItems SET Value = 600 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- std 50, 100, 500
 
 UPDATE AiFavoredItems SET Value = 650 WHERE ListType = 'RenaissancePseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 50, Player can get them easily, 350, 450
 UPDATE AiFavoredItems SET Value = 550 WHERE ListType = 'RenaissancePseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- std 20, Player can get them easily, 350
@@ -83,11 +83,14 @@ UPDATE AiFavoredItems SET Value = 950 WHERE ListType = 'EleanorPseudoYields' AND
 -------------------------------------------------------------------------------------------------------------------
 
 -- Science
-UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'Classical_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- std 100, 150
+UPDATE AiFavoredItems SET Value = 600 WHERE ListType = 'Classical_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- std 100, 150, 300
 UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'Classical_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- pvs 200
 
-UPDATE AiFavoredItems SET Value = 225 WHERE ListType = 'Medieval_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- std 80, 140, 175
-UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'Medieval_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 90, 150, 250
+UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'Medieval_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- std 80, 140, 175
+UPDATE AiFavoredItems SET Value = 750 WHERE ListType = 'Medieval_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 90, 150, 250, 300
+
+UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'Renaissance_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- std 75
+UPDATE AiFavoredItems SET Value = 400 WHERE ListType = 'Renaissance_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 45
 
 
 -- Atomic / Info
@@ -104,8 +107,8 @@ UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'Info_Science_PseudoYield
 --------------------------
 
 UPDATE AiFavoredItems SET Value = 950 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 180, 245
-UPDATE AiFavoredItems SET Value = 850 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- 170, 240
-UPDATE AiFavoredItems SET Value = 800 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- 155, 205, 250
+UPDATE AiFavoredItems SET Value = 950 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- 170, 240
+UPDATE AiFavoredItems SET Value = 950 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- 155, 205, 250
 
 UPDATE AiFavoredItems SET Value = 120 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- 75
 UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- 150, 200
@@ -131,17 +134,23 @@ UPDATE AiFavoredItems SET Value = 80 WHERE ListType = 'MoneyGrubberPseudoYields'
 
 
 UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs 9, std 7 -- pvs 5
+UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, std 3
+
 
 UPDATE AiFavoredItems SET Value = 200 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; -- std 150
 
 
 --UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3, std 5 -- pvs 7
 
---UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, pvs 3, std 3
+
 --UPDATE AiFavoredItems SET Value = -3 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs -3
 
+-- Medieval
 
-DELETE FROM ProjectCompletionModifiers WHERE ModifierId = 'RH_END_OF_TECH_MOD_NEGATIVE_XXS';
+UPDATE AiFavoredItems SET Value = 200 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; -- def 50
+--UPDATE AiFavoredItems SET Value = -3 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- def -3
+
+
 
 
 
@@ -192,7 +201,7 @@ WHERE ModifierId = 'RH_MH_EXT' AND Name = 'Amount'; -- std 75
 
 INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividualType, ModifierId, AttachmentTargetType)  VALUES	
 
-		('GREAT_PERSON_INDIVIDUAL_ZHANG_QIAN', 		 		 'RH_END_OF_TECH_MOD_MML', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- Increases Trade Route capacity by 1. Foreign Trade Routes to this city provide +2 Gold to both cities.
+		('GREAT_PERSON_INDIVIDUAL_ZHANG_QIAN', 		 		 'RH_END_OF_TECH_MOD_L', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- Increases Trade Route capacity by 1. Foreign Trade Routes to this city provide +2 Gold to both cities.
 
 
 -- Amenity Merchant General Purpose
@@ -210,7 +219,7 @@ INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividu
 		
 
 -- Admiral
-		('GREAT_PERSON_INDIVIDUAL_GRACE_HOPPER', 		 		 'RH_END_OF_TECH_MOD_MML', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- 2 Free Technologies		
+		('GREAT_PERSON_INDIVIDUAL_GRACE_HOPPER', 		 		 'RH_END_OF_TECH_MOD_L', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- 2 Free Technologies		
 		
 -- Engineer
 
@@ -232,6 +241,15 @@ WHERE EXISTS (SELECT * FROM GreatPersonIndividuals WHERE GreatPersonIndividualTy
 
 
 
+-- Absorbs City State into Empire
+
+INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType)
+SELECT 'GREAT_PERSON_INDIVIDUAL_STAMFORD_RAFFLES', 'RH_END_OF_TECH_MOD_MML', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+WHERE EXISTS (SELECT * FROM GreatPersonIndividuals WHERE GreatPersonIndividualType = 'GREAT_PERSON_INDIVIDUAL_STAMFORD_RAFFLES');
+
+
+
+
 -- Early Engineers
 
 INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividualType, ModifierId, AttachmentTargetType)  VALUES	
@@ -241,6 +259,35 @@ INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividu
 		('GREAT_PERSON_INDIVIDUAL_IMHOTEP', 		 		 'RH_END_OF_TECH_MOD_L', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_WONDER_IN_TILE'); -- pvs RH_END_OF_TECH_MOD_MML
 
 
+
+
+
+INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
+			('RH_EXTRA_GPP_BOOST',	'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS', 'RH_AI_ANCIENT_ONLY_REQ_S');
+
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
+			('RH_EXTRA_GPP_BOOST',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_SCIENTIST'),	
+			('RH_EXTRA_GPP_BOOST',				'Amount',					2000); 
+
+
+INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividualType, ModifierId, AttachmentTargetType)  VALUES	
+
+		('GREAT_PERSON_INDIVIDUAL_LEONARDO_DA_VINCI', 		 		 'RH_EXTRA_GPP_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'),
+
+-- Space Race
+
+		('GREAT_PERSON_INDIVIDUAL_STEPHANIE_KWOLEK', 	  'RH_EXTRA_GPP_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- 100% Project Production
+		('GREAT_PERSON_INDIVIDUAL_CARL_SAGAN', 		  'RH_EXTRA_GPP_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- 1500 Production
+		('GREAT_PERSON_INDIVIDUAL_WERNHER_VON_BRAUN', 		 	  'RH_EXTRA_GPP_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- 100% Project Production, Engineer
+
+-- Admiral
+
+		('GREAT_PERSON_INDIVIDUAL_GRACE_HOPPER', 		 		 'RH_EXTRA_GPP_BOOST', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'); -- 2 Free Technologies		
+
+
+
+
+
 --INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividualType, ModifierId, AttachmentTargetType)  VALUES	
 --		('GREAT_PERSON_INDIVIDUAL_FILIPPO_BRUNELLESCHI', 		  'RH_END_OF_TECH_MOD_M', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_WONDER_IN_TILE'); -- Grants 315 Production towards wonder construction. Ren Era
 
@@ -248,3 +295,28 @@ INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividu
 
 -- 		('RH_END_OF_TECH_MOD_MML',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 --		('RH_END_OF_TECH_MOD_MML',							'Amount'   , 550),		
+
+
+
+-- Projects Extra Preference:
+
+DELETE FROM ProjectCompletionModifiers WHERE ModifierId = 'RH_END_OF_TECH_MOD_NEGATIVE_XXS';
+
+INSERT OR IGNORE INTO ProjectCompletionModifiers (ProjectType, ModifierId) -- Value 3
+SELECT ProjectType, 'RH_END_OF_TECH_MOD_XXXS' 
+FROM Projects
+WHERE ProjectType LIKE 'PROJECT_ENHANCE_DISTRICT%';
+
+
+INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
+('RHOnlineProjects');
+INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
+('RHOnlineProjects', 'MAJOR_CIV_DEFAULT_TRAIT', 'Projects');
+
+-- New
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value)
+SELECT 'RHOnlineProjects', Item, 1, 500
+FROM Projects
+WHERE Item LIKE 'PROJECT_ENHANCE_DISTRICT%';
+
+

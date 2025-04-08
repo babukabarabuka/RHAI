@@ -297,6 +297,8 @@ INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 ('MaliYields'),
 ('MaliPseudoYields'),
 ('MaliDistricts'),
+('MaliSettlement'),
+
 ('MansaMusaSavings'),
 ('MansaMusaPseudoYields');
 
@@ -305,9 +307,17 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('MaliYields',       'TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'Yields'),
 ('MaliPseudoYields',       'TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'PseudoYields'),
 ('MaliDistricts',       'TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'Districts'),
+('MaliSettlement',       'TRAIT_CIVILIZATION_MALI_GOLD_DESERT', 'PlotEvaluations'),
+
+
 ('MansaMusaYields',       'TRAIT_LEADER_SAHEL_MERCHANTS', 'Yields'), -- bringing back as was breaking COMPATIBILITY with it disabled
 ('MansaMusaPseudoYields', 'TRAIT_LEADER_SAHEL_MERCHANTS', 'PseudoYields'),
 ('MansaMusaSavings',  			 'TRAIT_LEADER_SAHEL_MERCHANTS', 'SavingTypes');
+
+
+
+REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
+('MaliSettlement', 'Coastal', 					0, -15, 			NULL, 				'LOC_SETTLEMENT_RECOMMENDATION_COAST'); -- Prefer inland desert
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
@@ -761,10 +771,37 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
-('KupeSettle', 'Coastal', 			0, 9, 		 NULL, 	'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- coastal def +11 from base
+('KupeSettle', 'Coastal', 			0, 15, 		 NULL, 	'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- coastal def +11 from base, pvs 9
 ('KupeSettle', 'Total Yield', 		0, 1, 		'YIELD_PRODUCTION', 'LOC_SETTLEMENT_RECOMMENDATION_TOTAL_YIELD'), -- pvs 2
-('KupeSettle', 'Specific Feature',  0, 4, 		'FEATURE_FOREST', NULL),
+
+--('KupeSettle', 'Specific Resource', 		0, 4, 'RESOURCE_FISH', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), -- Culture bomb and food
+--('KupeSettle', 'Specific Resource', 		0, 2, 'RESOURCE_OIL', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), 
+
+('KupeSettle', 'Foreign Continent', 		0, 10, NULL, 'LOC_SETTLEMENT_RECOMMENDATION_FOREIGN_CONTINENT'), 
+
+
+('KupeSettle', 'Specific Feature',  0, 7, 		'FEATURE_FOREST', NULL),
 ('KupeSettle', 'Specific Feature',  0, 3, 		'FEATURE_JUNGLE', NULL);
+
+
+-- Kupe Auto Coastal Resource Insertion
+
+-- Step 1: Identify all resources with TerrainType 'TERRAIN_COAST'
+SELECT ResourceType FROM Resource_ValidTerrains WHERE TerrainType = 'TERRAIN_COAST';
+
+-- Step 2: Insert or replace AI favored settling values for each of those resources
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString)
+SELECT 
+    'KupeSettle' AS ListType,
+    'Specific Resource' AS Item,
+    0 AS Favored,
+    5 AS Value,
+    ResourceType AS StringVal,
+    'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES' AS TooltipString
+FROM Resource_ValidTerrains
+WHERE TerrainType = 'TERRAIN_COAST';
+
+
 
 /*
 		<Row ListType="KupeCivics" Item="CIVIC_DRAMA_POETRY" Favored="true"/>
@@ -775,6 +812,10 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal
 		
 		<Row ListType="MaoriSettlePreferences" Item="Nearest Friendly City" Favored="false" Value="8" /> Interesting
 */
+
+
+UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'MaoriSettlePreferences' AND Item = 'Nearest Friendly City'; -- std 8, pvs 3
+
 
 -- Could benefit from preserve as preferred?
 
