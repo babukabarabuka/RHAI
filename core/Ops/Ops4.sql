@@ -75,7 +75,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPercentage) VALUES
-('City Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 	0, 0.3),
+('City Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 	0, 0.2), --changed from 0.3 to 0.2 (B7)--
 ('City Defense', 'UNITTYPE_NAVAL_MELEE', 		0, 0),
 ('City Defense', 'UNITTYPE_NAVAL', 				0, 0.34),
 ('City Defense', 'UNITTYPE_CIVILIAN_LEADER',	 0, 0.25);
@@ -326,7 +326,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 ('RH HP Defence Team', 'UNITTYPE_CAVALRY',							  0, 3);
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPercentage) VALUES
-('RH HP Defence Team', 'UNITTYPE_ANTIAIR_SUPPORT', 	0, 0.45),
+('RH HP Defence Team', 'UNITTYPE_ANTIAIR_SUPPORT', 	0, 0.3), -- changed from 0.45 to 0.3 (B7)--
 ('RH HP Defence Team', 'UNITTYPE_NAVAL_MELEE', 		0, 0),
 ('RH HP Defence Team', 'UNITTYPE_NAVAL', 				0, 0.3),
 ('RH HP Defence Team', 'UNITTYPE_CIVILIAN_LEADER',	 0, 0.25);

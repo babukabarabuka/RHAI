@@ -79,8 +79,8 @@ INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Value) VALUES
 ('UnitPriorityBoosts', 'UNIT_MILITARY_ENGINEER', -99); -- RST -15 pvs -40, -45, -55, -60, -90
 
 INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Favored, Value) VALUES
-('UnitPriorityBoosts', 'UNIT_ANTIAIR_GUN', 1, 950), -- pvs 8, 16, 33, 65, 80, 100
-('UnitPriorityBoosts', 'UNIT_MOBILE_SAM', 1, 950); -- pvs 65, 80, 100
+('UnitPriorityBoosts', 'UNIT_ANTIAIR_GUN', 1, 400), -- pvs 8, 16, 33, 65, 80, 100 --changed from 950 to 400 (B7)--
+('UnitPriorityBoosts', 'UNIT_MOBILE_SAM', 1, 400); -- pvs 65, 80, 100 --changed from 950 to 400 (B7)--
 
 INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Favored, Value) VALUES
 ('UnitPriorityBoosts', 'UNIT_BIPLANE', 0, -90),-- pvs 3, pvs 35
@@ -247,7 +247,7 @@ INSERT OR IGNORE INTO Types     (Type,		Kind)    VALUES
 
 
 INSERT OR REPLACE INTO PseudoYields   (PseudoYieldType,		DefaultValue) VALUES	
-('PSEUDOYIELD_RH_UNIT_ANTI_AIR',	95000);  -- pvs 95000 -- working somewhat
+('PSEUDOYIELD_RH_UNIT_ANTI_AIR',	30000);  -- pvs 95000 -- working somewhat  --I changed this to 30000 from 95000(B7)--
 
 -- pvs 9500
 
@@ -501,4 +501,3 @@ FROM AiOperationTypes;
 --FROM AiOperationTypes;
 
 
--- git prompt
