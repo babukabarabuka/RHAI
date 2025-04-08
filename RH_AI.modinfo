@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mod id="2501be3e-9780-4e9f-9506-4ff71cf076cb" version="14">
   <Properties>
-    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.37 Discord Beta![ENDCOLOR]</Name>
+    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.34 Patreon Beta[ENDCOLOR]</Name>
     <Description>------------------------------------[NEWLINE]There's an AI System in the Game, says Shirk. ... it's called a [COLOR:ResScienceLabelCS]"Mayhem Level"[ENDCOLOR][NEWLINE]For Civ Chat, Feedback and Suggestions Use the RomanHoliday AI Discord! (Link on Steam Page).[NEWLINE]Enjoy! ;) </Description>
-    <Teaser>Thanks for being part of the Discord and the Mod Development!! It's Big Time Now.</Teaser>
+    <Teaser>Thanks for Supporting the Mod!! It's Big Time Now.</Teaser>
     <SupportsMultiplayer>1</SupportsMultiplayer>
     <Authors>RomanHoliday, WildW, and Slothoth!</Authors>
     <SpecialThanks>My Special Patrons: Listopadek, Slothoth, Gargamellor, Bailee, Olly, Nuworm, Mat, Ptfpsu5018, CataHula!, Rebel Scum, Randy, Spooky Dazzler, Sascha5132, Seyed and twoDarkMessiah for Helping me Spend Months on this mod!!![NEWLINE]German Translations: Onyxum. Thanks very much! </SpecialThanks>
@@ -511,7 +511,6 @@
 			<File>core/Main/Decisions/Pillage.xml</File>			<!-- pvs said. Needs to be before operations, testing moving back here -->
 			<File>core/Main/Decisions/Pillage_Aggressive.xml</File>
 			<File>core/Main/Decisions/Air.xml</File>
-			<File>core/Main/Decisions/RH_Settlement.xml</File>
 
 		</UpdateDatabase>
 
@@ -1088,8 +1087,6 @@
 	  <File>core/Main/Decisions/Pillage_Aggressive.xml</File>
       <File>core/Main/Decisions/Air.xml</File>
 	  <File>core/Main/Decisions/Air_Defense.xml</File>
-	  <File>core/Main/Decisions/RH_Settlement.xml</File>
-			
       <File>core/Ops/Ops.sql</File>
       <File>core/Ops/Ops2.sql</File>
       <File>core/Ops/Ops3.sql</File>

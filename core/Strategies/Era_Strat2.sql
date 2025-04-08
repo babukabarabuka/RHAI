@@ -217,8 +217,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ModernDistricts', 'DISTRICT_DAM', 						1, 100), -- Flooding Becomes more Severe
 
 ('ModernDistricts', 'DISTRICT_ENCAMPMENT', 					0, 0),
-('ModernDistricts', 'DISTRICT_ENTERTAINMENT_COMPLEX', 			1, 0),
-('ModernDistricts', 'DISTRICT_WATER_ENTERTAINMENT_COMPLEX', 1, 100);
+('ModernDistricts', 'DISTRICT_WATER_ENTERTAINMENT_COMPLEX', 1, 0);
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)

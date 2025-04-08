@@ -80,3 +80,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 UPDATE AiFavoredItems SET Value = 0 WHERE ListType = 'ClassicalSettlement' AND Item = 'Nearest Friendly City'; -- std +1
 
 
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -10, OngoingStrengthAdvantage = -10 WHERE TeamName = 'Settle City Team' AND OperationName = 'Settle New City'; 
+
+
+-- git prompt
